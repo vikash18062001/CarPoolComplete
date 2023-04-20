@@ -1,0 +1,179 @@
+<section class="book-ride container-fluid ">
+  <div class="background-img"><img src="../../../../assets/images/applicationbg.png" alt=""></div>
+  <navbar></navbar>
+  <div class="row px-lg-5 px-md-2 px-sm-3 px-0 justify-content-sm-start  justify-content-center py-3 ">
+    <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7 w-auto my-3">
+      <div class="ride-card">
+        <div class="top d-flex align-items-center justify-content-between">
+          <div class="heading">
+            <h1>{{cardHeading}}</h1>
+            <p>we get you the matches asap !</p>
+          </div>
+          <div class="toggleBtn">
+            <div class="form-check form-switch">
+              <input #bookride class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                [checked]="!isOfferCard" (click)="toggle(form)" />
+            </div>
+          </div>
+        </div>
+        <div class="input-container my-4 d-flex">
+          <div class="input-field w-100">
+            <form action="" #form="ngForm" id="my-form" [formGroup]="bookRideForm">
+              <div>
+                <p class="input-heading mt-0">From
+                  <span class="error-msg"
+                    *ngIf="(getControl('From','touched') || form.submitted) && getControl('From','invalid')">Required</span>
+                </p>
+                <autosuggestion [pFormGroup]="bookRideForm" pControlName="From"></autosuggestion>
+              </div>
+              <div>
+                <p class="input-heading mt-3">To
+                  <span class="error-msg"
+                    *ngIf="(getControl('To','touched') || form.submitted) && getControl('To','invalid')">Required</span>
+                </p>
+                <autosuggestion [pFormGroup]="bookRideForm" pControlName="To"></autosuggestion>
+              </div>
+              <div class="d-flex">
+                <div class="col-7 pe-3">
+                  <p class="input-heading mt-3">Date <span class="error-msg"
+                      *ngIf="(getControl('Date','touched') || form.submitted) && getControl('Date','invalid')">
+                      Required</span></p>
+                  <input type="date" id="date" name="date" formControlName="Date" [min]="currentTime" />
+                </div>
+                <div class="col-5" *ngIf="rideMode == 'book'">
+                  <p class="input-heading mt-3">NoOfSeats(1-3)
+                    <span class="error-msg"
+                      *ngIf="(getControl('Seat','value') < 1 || getControl('Seat','value') > 3) &&getControl('Seat','touched')">error</span>
+                  </p>
+                  <input type="number" id="seat" name="seat" formControlName="Seat" min="1" max="3" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="src-dst-img justify-content-start px-0 d-flex flex-column align-items-center">
+            <i class="bi bi-circle-fill path-img" *ngFor="let img of numberToArray(6);let i = index"></i>
+          </div>
+        </div>
+        <div>
+          <p class="input-heading">Time <span class="error-msg"
+              *ngIf="this.rideDetails.startTime == undefined && form.submitted">Required</span></p>
+          <div class="time-container d-flex flex-wrap my-2">
+            <button class="time-slot d-flex align-items-center justify-content-center" *ngFor="let time of timeSlots"
+              (click)="selectedTimeSlot(time)" [ngClass]="time == this.rideDetails.startTime ?'selected-time' : '' ">
+              {{ time }}
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn my-3" form="my-form" (click)="onSubmitForBooking()"
+          *ngIf="rideMode == 'book';else offerride">
+          Submit
+        </button>
+        <ng-template #offerride>
+          <div class="d-flex justify-content-end">
+            <button class="next-btn my-3" form="my-form" (click)="nextCard()">
+              Next >>
+            </button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div
+      class="col-xl-8 col-lg-7 col-md-5 col-sm-5 match-container flex-grow-1 justify-content-sm-start justify-content-center"
+      *ngIf="rideMode=='book';else secondCard">
+      <h1 class="match-heading d-flex justify-content-sm-start justify-content-center">Your Matches</h1>
+      <div *ngIf="matchedRide.length!=0 || (!form.submitted);else noMatch">
+        <div *ngFor="let data of matchedRide" class="d-flex flex-wrap justify-content-sm-start justify-content-center">
+          <usercard [cardData]="data" [isBookedRide]="false" class="mx-3 my-3" (click)="bookRide(data)">
+          </usercard>
+        </div>
+      </div>
+      <ng-template #noMatch>
+        <div *ngIf="showLoader">
+          No Matches Found
+        </div>
+      </ng-template>
+    </div>
+    <ng-template #secondCard>
+      <div
+        class="col-lg-5 col-md-6 col-sm-12 my-lg-0 my-md-0 my-sm-4 my-4 py-3 justify-content-sm-start justify-content-center d-flex">
+        <div class="second-card " *ngIf="isNextCard">
+
+          <div class="ride-card d-flex justify-content-between flex-column">
+            <div>
+              <div class="top d-flex align-items-center justify-content-between">
+                <div class="heading">
+                  <h1>Offer a Ride</h1>
+                  <p>we get you the matches asap !</p>
+                </div>
+                <div class="toggleBtn">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                      [checked]="!isOfferCard" (click)="toggle(form)" />
+                  </div>
+                </div>
+              </div>
+              <div class="input-container my-4 d-flex">
+                <div class="input-field w-100">
+                  <form action="" id="myForm" [formGroup]="additionalRideInfo" #form="ngForm">
+                    <div *ngFor="let stop of stops().controls; let i = index" formArrayName="stops">
+                      <p class="input-heading" [ngClass]="i == 0 ? 'mt-0' : 'mt-3'">
+                        Stop {{ i+1 }}
+                      </p>
+                      <div class="position-relative">
+                        <autosuggestion [pFormGroup]="additionalRideInfo" pControlName="{{i}}"></autosuggestion>
+                        <i class="bi bi-plus position-absolute add-icon" *ngIf="i + 1 == stops().controls.length"
+                          (click)="addStop()"></i>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="src-dst-img justify-content-start px-0 d-flex flex-column align-items-center">
+                  <i class="bi bi-circle-fill source-img"></i>
+                  <div *ngFor="let item of stops().controls; let i = index">
+                    <div *ngIf="i != 0" class="d-flex flex-column">
+                      <i class="bi bi-circle-fill path-img-2"></i>
+                      <i class="bi bi-circle-fill path-img-2"></i>
+                      <i class="bi bi-circle-fill path-img-2"></i>
+                      <i class="bi bi-circle-fill path-img-2"></i>
+                    </div>
+                  </div>
+                  <i class="bi bi-geo-alt-fill destination-img"></i>
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+              <div>
+                <div class="available-seats row">
+                  <div class="col-6">
+                    <p class="input-heading mt-0 mb-3">Available Seats</p>
+                    <div class="number d-flex justify-content-start">
+                      <p class="d-flex ms-0" (click)="availableSeat(1)"
+                        [ngClass]="this.rideDetails.availableSeats == 1?'available-seat':''">1</p>
+                      <p class="d-flex" (click)="availableSeat(2)"
+                        [ngClass]="this.rideDetails.availableSeats == 2?'available-seat':''">2
+                      </p>
+                      <p class="d-flex" (click)="availableSeat(3)"
+                        [ngClass]="this.rideDetails.availableSeats == 3?'available-seat':''">3
+                      </p>
+                    </div>
+                    <span class="error-msg" *ngIf="(this.rideDetails.availableSeats == 0 && form.submitted)">Select
+                      available
+                      seats</span>
+                  </div>
+                  <div class="col-6">
+                    <p class="input-heading mt-0 mb-3">Price</p>
+                    <input class="price" type="number" min="0" (ngModel)="price" placeholder="0$">
+                  </div>
+                </div>
+                <button type="submit" form="myForm" class="submit-btn my-3" (click)="onSubmitForOffering()">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</section>

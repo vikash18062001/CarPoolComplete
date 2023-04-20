@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-between align-items-center py-lg-3 py-sm-4 py-4 px-lg-5 px-md-2 px-sm-3 px-3">
+    <img src="../../../../assets/images/logo.png" alt="Image not loaded" id="logo" routerLink="/home"/>
+    <div class="position-relative user-menu" >
+        <img [src]="profileUrl" alt="Image not loaded" id="profileImg"
+            (click)="showDropDown()" class=""/>
+        <div class="dropdown row position-absolute" *ngIf="isShowDropDown">
+            <a href="" class="col-12 d-flex justify-content-center align-items-center" routerLink="/myprofile">Profile</a>
+            <a class="col-12 d-flex justify-content-center align-items-center" routerLink="/myrides">My Rides</a>
+            <a href="" class="col-12 d-flex justify-content-center align-items-center" (click)="logout()">Logout</a>
+        </div>
+    </div>
+</div>

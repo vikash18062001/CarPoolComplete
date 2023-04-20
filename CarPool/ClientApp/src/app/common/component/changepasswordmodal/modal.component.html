@@ -1,0 +1,51 @@
+<ng-template #modal let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Password Update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click');closeModal()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editPassword" #form="ngForm" id="passwordForm">
+      <div class="mb-3">
+        <label for="password">Enter your old password<span *ngIf="getControl('oldPassword','touched') && getErrorControl('oldPassword','required')">required</span></label>
+        <div class="input-group mb-2 position-relative">
+          <input #input type="password" id="password" class="form-control" placeholder="Enter password" name="password" formControlName="oldPassword" [disableControl]="isValidPassword"/>
+          <span class="eye-icon  position-absolute me-5">
+            <i *ngIf="input.type == 'password'" class="bi bi-eye-fill"
+                (click)="showPassword(input)"></i>
+            <i *ngIf="input.type == 'text'" class="bi bi-eye-slash-fill"
+                (click)="showPassword(input)"></i>
+          </span>
+          <button type="button" (click)="validatePassword(input)"[disabled]="isValidPassword" [ngClass]="{'btn-disabled': isValidPassword }">Check</button>
+        </div>
+        <label for="newPassword">Enter you new Password
+        <span *ngIf="(getControl('password','touched') || form.submitted) && getErrorControl('password','required');else length">required</span>
+        <ng-template #length>
+            <span *ngIf="(getControl('password','touched') || (form.submitted)) && getErrorControl('password','min-length')">minimum 8 character required</span>
+          </ng-template>
+        </label>
+        <div class="input-group mb-2 position-relative">
+          <input #password type="password" class="form-control" name="newpassword" id="newPassword" placeholder="Enter new password"  formControlName="password" [disableControl]="!isValidPassword">
+          <span class="eye-icon  position-absolute">
+            <i *ngIf="password.type == 'password'" class="bi bi-eye-fill"
+                (click)="showPassword(password)"></i>
+            <i *ngIf="password.type == 'text'" class="bi bi-eye-slash-fill"
+                (click)="showPassword(password)"></i>
+          </span>
+        </div>
+        <label for="confirmPassword">Confirm Password<span *ngIf="(getControl('confirmPassword','touched')|| form.submitted) && getErrorControl('confirmPassword','required')">required</span></label>
+        <div class="input-group mb-2 position-relative">
+          <input #confirmPassword type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" [disableControl]="!isValidPassword" formControlName="confirmPassword">
+          <span class="eye-icon  position-absolute">
+            <i *ngIf="confirmPassword.type == 'password'" class="bi bi-eye-fill"
+                (click)="showPassword(confirmPassword)"></i>
+            <i *ngIf="confirmPassword.type == 'text'" class="bi bi-eye-slash-fill"
+                (click)="showPassword(confirmPassword)"></i>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" form="passwordForm" class="btn btn-outline-dark" (click)="onSave()" [disabled]="form.invalid">Save</button>
+  </div>
+</ng-template>

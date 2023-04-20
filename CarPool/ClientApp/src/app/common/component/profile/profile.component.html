@@ -1,0 +1,39 @@
+<section class="container-fluid">
+    <navbar></navbar>
+    <div class="background-img"><img src="../../../../assets/images/applicationbg.png" alt=""></div>
+    <div class="main-div d-flex justify-content-center">
+        <div class="profile-card row mx-lg-5 mx-md-2 mx-sm-3 mx-3 px-3 py-4">
+            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 col-12 ">
+                <div class="profile-img position-relative">
+                    <label for="image" class="position-absolute">Choose Image</label>
+                    <img *ngIf="imageSrc != undefined;else profileImg" [src]="imageSrc" alt="" class="position-absolute" height="100%" width="100%">
+                    <ng-template #profileImg>
+                        <img *ngIf="userDetail" [src]="userDetail.profileUrl == '' ?  dummyImg : userDetail.profileUrl" alt="" height="100%" width="100%" class="position-absolute">
+                    </ng-template>
+                    <input id="image" type="file" alt="submit" (change)="onFileSelected($event)" accept=".jpg,.jpeg,.png">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 col-12 d-flex flex-column justify-content-between">
+                <div class="user-detail ">
+                    <h4 class="heading">Name</h4>
+                    <input #inputName type="text" name="name" id="name" class="input-name" value="{{name}}" disabled>
+                    <h4 class="heading">Email</h4>
+                    <p class="heading-value">{{email}}</p>
+                    <h4 class="heading">Password</h4>
+                    <p class="heading-value">**********</p>
+                </div>
+                <footer class="my-4">
+                    <div class="user-function d-flex flex-column mb-2">
+                        <a  class="my-1" (click)="displayModal()">Change Password</a>
+                        <a  class="my-1" (click)="changeName()">Change UserName</a>
+                    </div>
+                    <div class="footer-btn d-flex justify-content-sm-end justify-content-start">
+                        <input type="button" value="Save" class="" (click)="onSave()">
+                        <input type="button" value="Cancel" class="ms-4" (click)="closeProfile()">
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</section>
+<modal [toShow]="showModal" (checkPassword)="checkPassword($event)" [isValidPassword]="isValidPassword" (closeModalEvent)="closeModal()" (updatePassword)="updatePassword($event)"></modal>

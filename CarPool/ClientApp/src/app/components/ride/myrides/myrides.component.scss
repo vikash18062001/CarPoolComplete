@@ -1,0 +1,30 @@
+@import "../../../../assets/variable/variable.scss";
+
+section.my-rides {
+
+    .booked-ride {
+        background-color: $purplecolor;
+        display: inline-flex;
+        border-radius: 0.3rem;
+        padding: 0.3rem 1.9rem;
+        color: white;
+        font-size: 0.9rem;
+
+    }
+
+    .offered-ride {
+        background-color: $orangecolor;
+        display: inline-flex;
+        border-radius: 0.3rem;
+        color: white;
+        padding: 0.3rem 1.9rem;
+        font-size: 0.9rem;
+    }
+
+    .background-img {
+        position: fixed;
+        bottom:0;
+        z-index: -1;
+    }
+
+}

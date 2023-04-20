@@ -1,0 +1,24 @@
+$placeholder : #D1D1D1;
+$purplecolor : #8726F5;
+$orangecolor : #F3B043;
+$textcolor : #363F52;
+$cardsubheadingcolor : #9D9D9D;
+$inputbordercolor :#5B8EDC;
+$circlecolor: #E0E0E0;
+$cardheadingcolor : #B6B6B6;
+$availableseatcolor : #7154F3;
+$seatnotavailablecolor:#ECECEC;
+
+@font-face {
+    font-family: 'OpenSansSemiBold';
+    src: url("../OpenSans/OpenSans-SemiBold.ttf");
+}
+@font-face {
+    font-family: 'OpenSansBoldItalic';
+    src: url("../OpenSans/OpenSans-ExtraBoldItalic.ttf");
+}
+
+@font-face {
+    font-family: 'OpenSansExtraBold';
+    src: url("../OpenSans/OpenSans-ExtraBold.ttf");
+}

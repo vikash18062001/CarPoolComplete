@@ -1,0 +1,50 @@
+@use "../../../../assets/variable/variable.scss" as variable;
+
+
+.home-page {
+    background-image: url(../../../../assets/images/rideoptionsbg.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+}
+
+#userImage {
+    width: 3rem;
+    float: right;
+}
+
+h2 {
+    font-family: "OpenSansExtraBold";
+    font-size: 1.6rem;
+}
+
+.book-ride-container {
+    cursor: pointer;
+    height: 10.8rem;
+    width: 17rem;
+    background-color: variable.$purplecolor;
+    border-radius: 0.6rem;
+
+    p {
+        color: white;
+        font-size: 1.6rem;
+    }
+}
+
+.offer-ride-container {
+    cursor: pointer;
+    height: 10.8rem;
+    width: 17rem;
+    background-color: variable.$orangecolor;
+    border-radius: 0.6rem;
+
+    p {
+        color: white;
+        font-size: 1.6rem;
+    }
+}
+
+.operations {
+    margin: 1rem 2rem;
+}

@@ -1,0 +1,169 @@
+@use '../../../../assets/variable/variable.scss' as u;
+
+@font-face {
+    font-family: 'OpenSansExtraBold';
+    src: url('../../../../assets/OpenSans/OpenSans-ExtraBold.ttf');
+}
+
+section
+{
+    overflow: hidden;
+.color-purple
+{
+    background-color:u.$purplecolor;
+}
+
+.color-orange
+{
+    background-color:u.$orangecolor;
+}
+
+.left-side {
+    background-color: white;
+    background-image: url("../../../../assets/images/homebg.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    height: 100vh;
+}
+
+.left-side {
+    h1 {
+        font-size: 6rem;
+        color: u.$textcolor;
+        font-weight: 800;
+        font-family: 'OpenSansBoldItalic';
+        font-style: italic;
+        line-height: 100%;
+    }
+
+    p {
+        font-size: 1.7rem;
+        color: u.$textcolor;
+        letter-spacing: 0.3rem;
+    }
+}
+
+.right-side {
+    background-image: url(../../../../assets/images/formbg.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    h3 {
+        margin-top: 6.2rem;
+    }
+
+    .input-form {
+        color: u.$placeholder;
+        font-size: 0.8rem;
+        justify-content: center;
+        font-family: "OpenSansSemiBold";
+        width: 80%;
+        padding: 0 12px;
+    }
+
+    .top-4 {
+        top: 5px;
+        left: 15px;
+    }
+
+    .base-text {
+        color: white;
+        font-size: 0.9rem;
+    
+        a {
+            font-weight: bold;
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+        }
+    }
+    .row
+    {
+        justify-content: center;
+    }
+
+    .error-msg
+    {
+        color:red;
+    }
+}
+
+#line {
+    content: " ";
+    border-top: 3px solid white;
+    width: 4rem;
+}
+
+#textMiles {
+    color: #F3B043;
+}
+
+#textMoney {
+    color: #8726F5;
+}
+
+h3 {
+    color: white;
+    font-weight: bold;
+}
+
+.eye-icon {
+    font-size: 2rem;
+    top: 0.3rem;
+    right: 2rem;
+
+}
+
+.submit-btn {
+    color: white;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-family: "OpenSansExtraBold";
+    border: none;
+}
+
+.popup-message
+{
+    top: 1rem;
+    transition:right 1s;
+    
+}
+.to-show
+{
+    right: 2rem;    
+}
+
+.to-hide
+{
+    right:-15rem;
+}
+
+}
+
+
+@media only screen and (max-width:680px) {
+    .left-side {
+        h1 {
+            font-size: 5rem;
+        }
+        p {
+            font-size: 1.7rem;
+            letter-spacing: 0.3rem;
+        }
+    }
+}
+
+@media only screen and (max-width:450px) {
+    .left-side {
+        h1 {
+            font-size: 4.5rem;
+        }   
+        p {
+            font-size: 1.7rem;
+            letter-spacing: 0.3rem;
+        }
+    }  
+}

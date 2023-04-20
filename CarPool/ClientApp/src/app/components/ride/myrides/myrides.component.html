@@ -1,0 +1,35 @@
+<section class="my-rides">
+    <div class="background-img"><img src="../../../../assets/images/applicationbg.png" alt=""></div>
+    <div class="container-fluid">
+        <navbar></navbar>
+        <div class="row px-sm-5 px-3">
+            <div class="col-4 w-auto">
+                <div class="booked-ride mt-5 mb-3">Booked rides</div>
+                <div *ngIf="bookedRides.length!=0 ; else booked">
+                    <div *ngFor="let ride of bookedRides" class="my-3">
+                        <usercard [cardData]="ride" [isBookedRide]="true"></usercard>
+                    </div>
+                </div>
+                <ng-template #booked>
+                    <div *ngIf="isBookedRequestCompleted">
+                        No Rides Booked
+                    </div>
+                </ng-template>
+            </div>
+            <div class="col-4 w-auto ms-lg-5">
+                <div class="offered-ride mt-5 mb-3">Offered rides</div>
+                <div *ngIf="offeredRides.length!=0;else offered">
+                    <div *ngFor="let ride of offeredRides" class="my-3">
+                        <usercard [cardData]="ride" [isBookedRide]="false"></usercard>
+                    </div>
+                </div>
+                <ng-template #offered>
+                    <div *ngIf="isOfferedRequestCompleted">
+                        No Rides Offered
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+</section>

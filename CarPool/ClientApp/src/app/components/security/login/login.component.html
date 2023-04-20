@@ -1,0 +1,65 @@
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="left-side col-lg-8 col-sm-12 my-0 ">
+                <img src="../../assets/images/logo.png" alt=" Not fetched" id="logo" class="my-3  ms-lg-5 ms-sm-4 ms-4">
+                <h1 class="title ms-lg-5 ms-sm-4 ms-4">TURN <span id="textMiles">MILES</span><br>INTO <span
+                        id="textMoney">MONEY</span></h1>
+                <p class="sub-title ms-lg-5 ms-sm-4 ms-4">RIDES ON TAP</p>
+            </div>
+
+            <div class="right-side col-lg-4 col-sm-12 color-purple position-relative">
+                <div class="row justify-content-center">
+                    <h3 class="d-flex justify-content-center">Log In</h3>
+                    <span id="line"></span>
+                </div>
+
+                <form [formGroup]="loginForm" action="">
+                    <div class="row">
+                        <div class="form-floating mb-3 mt-3 input-form mx-5 col-lg-12 col-sm-4">
+                            <input type="email" class="form-control" id="floatingInput1" placeholder="Enter EmailId"
+                                formControlName="email">
+                            <label for="floatingInput1" class="top-4">Enter Email Id</label>
+                            <span
+                                *ngIf="getErrorControl('email','required') && getControl('email','touched');else isValid"
+                                class="error-msg">required</span>
+                            <ng-template #isValid>
+                                <span *ngIf="getControl('email','invalid') && getControl('email','touched')"
+                                    class="error-msg">Enter valid id</span>
+                            </ng-template>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-floating mb-3 input-form mx-5 position-relative">
+                            <input [type]="passwordType" class="form-control " id="floatingInput2"
+                                placeholder="Enter Password" formControlName="password">
+                            <label for="floatingInput2" class="top-4 d-flex justify-content-between">Enter
+                                Password</label>
+                            <span class="eye-icon  position-absolute">
+                                <i *ngIf="passwordType == 'password'" class="bi bi-eye-fill"
+                                    (click)="showPassword()"></i>
+                                <i *ngIf="passwordType == 'text'" class="bi bi-eye-slash-fill"
+                                    (click)="showPassword()"></i>
+                            </span>
+                            <span class="error-msg"
+                                *ngIf="getErrorControl('password','required') && getControl('password','touched')">required</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="submit-btn color-orange" [disabled]="!loginForm.valid"
+                                (click)="onSubmit()">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row">
+                    <div class="base-text d-flex justify-content-center my-4">
+                        <p class="">Not a member yet?<a routerLink="signup"> SIGN UP</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

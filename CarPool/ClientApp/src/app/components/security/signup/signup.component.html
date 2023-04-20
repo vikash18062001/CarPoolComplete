@@ -1,0 +1,80 @@
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="left-side col-lg-8 col-sm-12 my-0 ">
+                <img src="../../assets/images/logo.png" alt=" Not fetched" id="logo" class="my-3  ms-lg-5 ms-sm-4 ms-4">
+                <h1 class="title ms-lg-5 ms-sm-4 ms-4">TURN <span id="textMiles">MILES</span><br>INTO <span
+                        id="textMoney">MONEY</span></h1>
+                <p class="sub-title ms-lg-5 ms-sm-4 ms-4">RIDES ON TAP</p>
+            </div>
+            <div class="right-side col-lg-4 col-sm-12 color-orange position-relative">
+                <div class="row justify-content-center">
+                    <h3 class="d-flex justify-content-center">Sign Up</h3>
+                    <span id="line"></span>
+                </div>
+                <form [formGroup]="signUpForm" #form="ngForm">
+                    <div class="row">
+                        <div class="form-floating mb-3 mt-3 input-form mx-5 col-lg-12 col-sm-4">
+                            <input type="email" class="form-control" id="floatingInput1" placeholder="Enter EmailId"
+                                formControlName="email">
+                            <label for="floatingInput1" class="top-4">Enter Email Id</label>
+                            <span
+                                *ngIf="getErrorControl('email','required') && (getControl('email','touched') || form.submitted);else isValid"
+                                class="error-msg">required</span>
+                            <ng-template #isValid>
+                                <span
+                                    *ngIf="getControl('email','invalid') && (getControl('email','touched') || form.submitted)"
+                                    class="error-msg">Enter valid id</span>
+                            </ng-template>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 input-form mx-5 position-relative">
+                            <input #password [type]="passwordType" class="form-control " id="floatingInput2"
+                                placeholder="Enter Password" formControlName="password">
+                            <label for="floatingInput2" class="top-4 d-flex justify-content-between">Enter
+                                Password</label>
+                            <span class="eye-icon  position-absolute">
+                                <i *ngIf="password.type == 'password'" class="bi bi-eye-fill"
+                                    (click)="showPassword(password)"></i>
+                                <i *ngIf="password.type == 'text'" class="bi bi-eye-slash-fill"
+                                    (click)="showPassword(password)"></i>
+                            </span>
+                            <span
+                                *ngIf="getControl('password','invalid') && (getControl('password','touched') || form.submitted)"
+                                class="error-msg">Enter correct password.It should be of minimum 8 length.</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 input-form mx-5">
+                            <input #confirmPassword type="password" class="form-control " id="floatingInput3"
+                                placeholder="Enter Password" formControlName="confirmPassword">
+                            <label for="floatingInput3" class="top-4">Enter Confirm Password</label>
+                            <span class="eye-icon  position-absolute">
+                                <i *ngIf="confirmPassword.type == 'password'" class="bi bi-eye-fill"
+                                    (click)="showPassword(confirmPassword)"></i>
+                                <i *ngIf="confirmPassword.type == 'text'" class="bi bi-eye-slash-fill"
+                                    (click)="showPassword(confirmPassword)"></i>
+                            </span>
+                            <span *ngIf="getControl('confirmPassword','invalid') && getControl('confirmPassword','touched')"
+                                class="error-msg ">Enter correct password</span>
+                            <span class="error-msg" *ngIf="signUpForm.errors && form.submitted">Password doesnot
+                                matched</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="submit-btn color-purple" (click)="onSubmit()">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="base-text d-flex justify-content-center my-4">
+                        <p class="">Already a member?<a routerLink=""> LOG IN</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,13 @@
+<div class="ng-autocomplete" [formGroup]="pFormGroup">
+    <ng-autocomplete [data]="locations" searchKeyword="name"
+        (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+        historyIdentifier="countries" [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" (inputCleared)="onInputCleared()">
+    </ng-autocomplete>
+    <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.name"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFounder>
+        <div [innerHTML]="notFounder"></div>
+    </ng-template>
+</div>

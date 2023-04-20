@@ -1,0 +1,84 @@
+section {
+    .background-img {
+        position: fixed;
+        bottom: 0;
+        z-index: -1;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .main-div
+    {
+        width: 100%;
+    }
+
+
+    .profile-card {
+        width: 80%;
+        max-width: 800px;
+        background: linear-gradient(45deg, #d19e9e,#86e1ec,#9999c4);
+        border-radius: 0.5rem;
+    }
+    .user-detail {
+        .heading{
+        font-size: 1.4rem;
+        font-weight: 400;
+        }
+        .heading-value
+        {
+            font-size: 1rem;
+        }
+    }
+    .profile-img {
+        border-radius: 50%;
+        height: 100%;
+        width: 100%;
+        min-width: 250px;
+        min-height: 250px;
+        background-color: grey;
+        label
+        {
+            left: 32%;
+            top: 46%;
+        }
+        input {
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            border-radius: 50%;
+        }
+        img {
+            border-radius: 50%;
+        }
+    }
+    .footer-btn > input
+    {
+        min-width: 5rem;
+        border: 1px solid grey;
+        box-sizing: border-box;
+        border-radius: 0.4rem;
+    }
+
+    .footer-btn input:first-child {
+        background-color: #28c628;
+    }
+    .footer-btn input:last-child {
+        background-color: #a29c9c;
+    }
+
+    .user-function a
+    {
+        text-decoration: none;
+    }
+
+    .input-name {
+        &:disabled{
+            color: black;
+        }
+        background:inherit;
+        border:none
+    }
+    .input-name:focus {
+        background-color: white;
+    }
+}

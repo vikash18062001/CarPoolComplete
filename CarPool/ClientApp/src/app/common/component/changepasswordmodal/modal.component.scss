@@ -1,0 +1,29 @@
+.input-group input {
+    width: 80%;
+    margin-right: 10px;
+    border-radius: 0.4rem !important;
+}
+
+.input-group button {
+    margin-left: 10px;
+    border-radius: 0.4rem !important;
+    border: 1px solid grey;
+    background: #72b772;
+    color: white;
+}
+
+label span {
+    color: red ;
+}
+
+.eye-icon {
+    font-size: 1.6rem;
+    top: 0rem;
+    right: 2rem;
+    z-index: 10;
+
+}
+
+.btn-disabled {
+    background-color: grey !important;
+}

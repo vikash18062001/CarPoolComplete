@@ -1,0 +1,61 @@
+.ng-autocomplete
+{
+    width: 100%!important;
+}
+
+::ng-deep .autocomplete-container .input-container input  {
+    border-bottom: 0.8px solid rgb(201, 200, 200) !important;
+    width: 100%;
+    font-size: 0.8rem !important;
+    font-weight: normal;
+    background-color: #fff;
+    color: #000000de;
+    width: 100%;
+    padding: unset !important;
+    height: auto !important;
+    line-height: unset !important;
+}
+
+::ng-deep .autocomplete-container {
+    box-shadow: none !important;
+    position: relative;
+    overflow: visible;
+    height: unset !important;
+}
+
+::ng-deep .autocomplete-container .suggestions-container ul li a {
+    padding: 10px 15px; 
+    display: block;
+    text-decoration: none; 
+    color: #333;
+    cursor: pointer;
+    color: #000000de;
+    font-size: 11px !important;
+}
+
+::ng-deep .autocomplete-container .suggestions-container .heading .text {
+    font-size: .70em !important;
+}
+::ng-deep .autocomplete-container .input-container .x i {
+    color: #0000008a;
+    font-size: 13px !important;
+    vertical-align: middle;
+}
+
+::ng-deep .autocomplete-container .input-container .x {
+    position: absolute;
+    right: 20px !important;
+    margin: auto;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+::ng-deep .autocomplete-container .not-found {
+    position: absolute;
+    padding: 0 0.75em;
+    border: solid 1px #f1f1f1;
+    background: white;
+    width: 100%;
+}
+

@@ -1,0 +1,65 @@
+@import "../../../../styles.scss";
+
+section.my-card {
+    // padding-left: 12px;
+    .user-card {
+        padding: 0.6rem 0.9rem;
+        height: 11.5rem !important;
+        width: 23rem;
+        box-shadow: 0 0 4px #dad8d8;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: white;
+        @media (max-width:576px){
+            width: 21.6rem;
+            padding-left: 8px;
+        }
+
+        div {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    }
+
+    #userImage {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 100%;
+    }
+
+    .path-icons {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: 8px;
+        bottom: 16px;
+
+        .path-img {
+            font-size: 0.4rem;
+            color: $circlecolor;
+            margin: 0 0.3rem;
+        }
+
+        .source-img {
+            font-size: 0.8rem;
+            color: $purplecolor;
+        }
+
+        .destination-img {
+            font-size: 0.9rem;
+            color: $purplecolor;
+        }
+    }
+
+    .card-headers {
+        color: $cardsubheadingcolor;
+        font-size: 0.7rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .card-data {
+        font-size: 0.83rem;
+        font-weight: normal;
+    }
+}

@@ -1,0 +1,17 @@
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/bin/Release/net7.0/CarPool.Providers.deps.json
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/bin/Release/net7.0/CarPool.Providers.dll
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/bin/Release/net7.0/CarPool.Providers.pdb
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/bin/Release/net7.0/CarPool.Concerns.dll
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/bin/Release/net7.0/CarPool.Contracts.dll
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/bin/Release/net7.0/CarPool.Concerns.pdb
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/bin/Release/net7.0/CarPool.Contracts.pdb
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/obj/Release/net7.0/CarPool.Providers.csproj.AssemblyReference.cache
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/obj/Release/net7.0/CarPool.Providers.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/obj/Release/net7.0/CarPool.Providers.AssemblyInfoInputs.cache
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/obj/Release/net7.0/CarPool.Providers.AssemblyInfo.cs
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/obj/Release/net7.0/CarPool.Providers.csproj.CoreCompileInputs.cache
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/obj/Release/net7.0/CarPool.Providers.csproj.CopyComplete
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/obj/Release/net7.0/CarPool.Providers.dll
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/obj/Release/net7.0/refint/CarPool.Providers.dll
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/obj/Release/net7.0/CarPool.Providers.pdb
+/Users/vikash/Desktop/CarPoolNewClone/task-5-car-pooling-web-api-csharp-vikash18062001/CarPoolApplication/CarPool.Providers/obj/Release/net7.0/ref/CarPool.Providers.dll
